@@ -1,0 +1,68 @@
+from reportlab.lib.pagesizes import A4
+from reportlab.lib import colors
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+
+def create_luxe_report(filename):
+    c = canvas.Canvas(filename, pagesize=A4)
+    width, height = A4
+
+    # 1. Background (Rich Black)
+    c.setFillColor(colors.HexColor("#0A0A0A"))
+    c.rect(0, 0, width, height, fill=1)
+
+    # 2. Draw Brand Logo Section (Top Left)
+    lx, ly = 1*inch, height - 1.5*inch
+    c.setStrokeColor(colors.HexColor("#F59E0B")) # Amber 500
+    c.setLineWidth(1)
+    
+    # Diamond Border
+    c.saveState()
+    c.translate(lx + 20, ly + 20)
+    c.rotate(45)
+    c.rect(-20, -20, 40, 40, stroke=1)
+    c.restoreState()
+
+    # The "L" in logo (Serif)
+    c.setFont("Times-Roman", 22)
+    c.setFillColor(colors.HexColor("#F59E0B"))
+    c.drawCentredString(lx + 20, ly + 13, "L")
+
+    # Brand Text: LUXE ASSET
+    c.setFont("Times-Roman", 28)
+    c.setFillColor(colors.white)
+    c.drawString(lx + 60, ly + 18, "LUXE")
+    c.setFillColor(colors.HexColor("#F59E0B"))
+    c.drawString(lx + 138, ly + 18, "ASSET")
+
+    # Tagline
+    c.setFont("Helvetica", 8)
+    c.setFillColor(colors.HexColor("#6B7280"))
+    c.drawString(lx + 60, ly + 5, "GLOBAL REAL ESTATE")
+
+    # 3. Main Content
+    c.setFont("Helvetica-Bold", 42)
+    c.setFillColor(colors.white)
+    c.drawString(1*inch, height - 4*inch, "Q4 MARKET REPORT")
+    
+    # Accent Line
+    c.setStrokeColor(colors.HexColor("#F59E0B"))
+    c.line(1*inch, height - 4.2*inch, 3.2*inch, height - 4.2*inch)
+
+    # Mock Data/Stats
+    stats = [("Portfolio Growth", "+12.4%"), ("New High-End Listings", "142"), ("Avg. Transaction", "$4.8M")]
+    y_pos = height - 5.5*inch
+    for label, val in stats:
+        c.setFont("Helvetica", 10)
+        c.setFillColor(colors.HexColor("#6B7280"))
+        c.drawString(1*inch, y_pos, label.upper())
+        c.setFont("Helvetica-Bold", 20)
+        c.setFillColor(colors.white)
+        c.drawString(1*inch, y_pos - 25, val)
+        y_pos -= 70
+
+    c.showPage()
+    c.save()
+
+create_luxe_report("Q4.pdf")
+

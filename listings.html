@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+  <title>
+    Real Estate | Air BnB
+  </title>
+  <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="input.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+<!-- FontAwesome for trust icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Flatpickr CSS (High-end theme) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
+
+<script src="https://cdn.tailwindcss.com"></script>    
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  
+  <!-- NAVBAR -->
+
+<nav id="navbar" class="fixed top-0 left-0 w-full z-[100]">
+  <!-- Top Utility Bar (International Trust Factor) -->
+  <div class=" md:flex bg-stone-950 border-b border-white/5 py-2 px-12 justify-between items-center text-[9px] uppercase tracking-[0.2em] text-gray-500">
+    <div class="flex gap-6">
+      <span><i class="fa-solid fa-earth-americas mr-2 text-amber-500/50"></i>London</span>
+      <span>Dubai</span>    
+      <span>New York</span>
+    </div>
+    <div class="flex gap-6 items-center">
+      <a href="#" class="hover:text-amber-400 transition-colors">Investor Relations</a>
+      <span class="w-[1px] h-3 bg-white/10"></span>
+      <span class="text-gray-300">Market: <span class="text-emerald-500">+2.4% ↑</span></span>
+    </div>
+  </div>
+
+  <!-- Main Luxury Navbar -->
+  <div class="mx-auto w-full max-w-7xl mt-4 px-4">
+    <div class="bg-black/80 backdrop-blur-xl border border-white/10 px-8 py-5 flex items-center justify-between shadow-2xl relative">
+      
+      <!-- Brand Authority -->
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <div class="w-10 h-10 border border-amber-500/40 rotate-45 flex items-center justify-center group-hover:rotate-90 transition-transform duration-500">
+            <span class="text-amber-500 font-serif -rotate-45 font-light text-xl">L</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-white font-serif text-2xl leading-none tracking-tight">LUXE<span class="text-amber-500">ASSET</span></span>
+          <span class="text-[8px] text-gray-500 uppercase tracking-[0.4em] mt-1">Global Real Estate</span>
+        </div>
+      </div>
+
+      <!-- High-Conversion Navigation -->
+      <div class="hidden md:flex items-center gap-12">
+        <div class="flex gap-8">
+          <a href="index.html#home" class="group relative text-[10px] uppercase tracking-[0.2em] font-medium text-gray-300 hover:text-white transition-all">
+            Home
+            <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+           <a href="index.html#listings" class="group relative text-[10px] uppercase tracking-[0.2em] font-medium text-gray-300 hover:text-white transition-all">
+            Listings
+            <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="index.html#portfolio" class="group relative text-[10px] uppercase tracking-[0.2em] font-medium text-gray-300 hover:text-white transition-all">
+            Portfolio
+            <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="index.html#advisory" class="group relative text-[10px] uppercase tracking-[0.2em] font-medium text-gray-300 hover:text-white transition-all">
+            Advisory
+            <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+           <a href="index.html#blog" class="group relative text-[10px] uppercase tracking-[0.2em] font-medium text-gray-300 hover:text-white transition-all">
+            blog
+            <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-amber-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        </div>
+
+        <button class="relative overflow-hidden px-10 py-3 bg-amber-500 text-black text-[10px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-white hover:text-black group">
+          <span class="relative z-10">Enquire Now</span>
+          <!-- Gold Shimmer Effect -->
+          <div class="absolute inset-0 w-1/4 h-full bg-white/30 skew-x-[-20deg] -translate-x-full group-hover:translate-x-[400%] transition-transform duration-700"></div>
+        </button>
+      </div>
+
+      <!-- Mobile Trigger -->
+      <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 focus:outline-none group">
+        <span id="line-1" class="w-6 h-[1px] bg-amber-500 transition-all"></span>
+        <span id="line-2" class="w-4 h-[1px] bg-amber-500 self-end transition-all"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden opacity-0 -translate-y-4 transition-all duration-500 bg-stone-950 border-x border-b border-white/10 p-10 flex flex-col gap-8 items-start md:hidden">
+      <a href="index.html#home" class="text-xl font-serif text-white hover:text-amber-500">HOME</a>
+      <a href="index.html#listings" class="text-xl font-serif text-white hover:text-amber-500">LISTINGS</a>
+      <a href="index.html#portfolio" class="text-xl font-serif text-white hover:text-amber-500">PORTFOLIO</a>
+       <a href="index.html#advisory" class="text-xl font-serif text-white hover:text-amber-500">ADVISORY</a>
+      <a href="index.html#blog" class="text-xl font-serif text-white hover:text-amber-500">BLOG</a>
+     
+      <div class="w-full h-[1px] bg-white/5"></div>
+      <button class="w-full py-4 bg-amber-500 text-black text-[11px] font-bold uppercase tracking-[0.2em]">ENQUIRE NOW</button>
+    </div>
+  </div>
+</nav>
+
+<section id="listings" class="py-32 bg-[#050505] text-white overflow-hidden scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- AUTHORITY HEADER -->
+    <div class="flex flex-col md:flex-row justify-between items-end gap-12 mt-12 mb-24">
+      <div class="max-w-2xl">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-[1px] bg-amber-500"></div>
+          <span class="text-[10px] uppercase tracking-[0.8em] text-amber-500 font-bold">Curated Assets 2025/26</span>
+        </div>
+        <h2 class="text-6xl md:text-[7rem] font-serif leading-[0.85] tracking-tighter">
+          Primary <br/> 
+          <span class="italic text-stone-600 font-light hover:text-stone-400 transition-colors duration-700">Acquisitions.</span>
+        </h2>
+      </div>
+      
+      <div class="pb-4">
+        <a href="#" class="group flex items-center gap-6 text-[10px] uppercase tracking-[0.5em] font-bold text-stone-400 hover:text-amber-500 transition-all duration-500">
+          <span class="border-b border-transparent group-hover:border-amber-500 pb-1">View Full Inventory</span>
+          <span class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-amber-500 group-hover:border-amber-500 group-hover:text-black transition-all duration-500 -rotate-45 group-hover:rotate-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3""")/>></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- LISTINGS GRID (9 Assets) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-32">
+
+      <!-- ASSET TEMPLATE (Repeated 9 times with specific variations) -->
+      
+      <!-- 01 -->
+<div class="group cursor-pointer">
+  <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+    <img src="assets/city luxe.webp" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Skyline" />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+    <div class="absolute top-8 left-8 flex flex-col gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+      <span class="bg-amber-500 text-black text-[8px] font-black uppercase tracking-[0.2em] px-3 py-1.5 w-fit">Off-Market</span>
+    </div>
+    <div class="absolute bottom-10 left-10">
+      <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Valuation</p>
+      <p class="text-5xl font-serif text-white tracking-tighter">$1,240,000</p>
+    </div>
+  </div>
+  <div class="mt-10">
+    <div class="flex justify-between items-end border-b border-white/10 pb-8">
+      <div>
+        <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">The Horizon Penthouse</h3>
+        <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Oysterbay • Financial District</p>
+      </div>
+    </div>
+    <div class="flex justify-between items-center mt-8">
+       <div class="flex gap-6">
+          <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">460 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+          <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">3 Bed</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+       </div>
+      <button 
+  onclick="openModal('The Horizon Penthouse', '$1,240,000', 'assets/city luxe.webp', '3 Bed', 'Oysterbay')" 
+  class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">
+  Details <span class="text-amber-500 ml-1">→</span>
+</button>
+
+    </div>
+  </div>
+</div>
+
+
+      <!-- 02 (Offset) -->
+      <div class="group cursor-pointer lg:mt-32">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/studio apartment.jpeg" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Studio" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Portfolio Value</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$840,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">The Glass Atelier</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Masaki • Peninsula</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">120 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">Studio</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="group cursor-pointer">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/penthouse.webp" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Penthouse" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Valuation</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$3,500,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">Azure Bay Estate</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Msasani • Ocean Front</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">850 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">5 Bed</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+       <!-- 01 -->
+      <div class="group cursor-pointer">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/city luxe.webp" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Skyline" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute top-8 left-8 flex flex-col gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+            <span class="bg-amber-500 text-black text-[8px] font-black uppercase tracking-[0.2em] px-3 py-1.5 w-fit">Off-Market</span>
+          </div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Valuation</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$1,240,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">The Horizon Penthouse</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Oysterbay • Financial District</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">460 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">3 Bed</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 (Offset) -->
+      <div class="group cursor-pointer lg:mt-32">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/studio apartment.jpeg" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Studio" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Portfolio Value</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$840,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">The Glass Atelier</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Masaki • Peninsula</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">120 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">Studio</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="group cursor-pointer">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/penthouse.webp" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Penthouse" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Valuation</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$3,500,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">Azure Bay Estate</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Msasani • Ocean Front</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">850 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">5 Bed</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+       <!-- 01 -->
+      <div class="group cursor-pointer">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/city luxe.webp" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Skyline" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute top-8 left-8 flex flex-col gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+            <span class="bg-amber-500 text-black text-[8px] font-black uppercase tracking-[0.2em] px-3 py-1.5 w-fit">Off-Market</span>
+          </div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Valuation</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$1,240,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">The Horizon Penthouse</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Oysterbay • Financial District</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">460 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">3 Bed</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 (Offset) -->
+      <div class="group cursor-pointer lg:mt-32">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/studio apartment.jpeg" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Studio" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Portfolio Value</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$840,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">The Glass Atelier</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Masaki • Peninsula</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">120 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">Studio</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="group cursor-pointer">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/penthouse.webp" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Penthouse" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Valuation</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$3,500,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">Azure Bay Estate</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Msasani • Ocean Front</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">850 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">5 Bed</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+       <!-- 01 -->
+      <div class="group cursor-pointer">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/city luxe.webp" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Skyline" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute top-8 left-8 flex flex-col gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+            <span class="bg-amber-500 text-black text-[8px] font-black uppercase tracking-[0.2em] px-3 py-1.5 w-fit">Off-Market</span>
+          </div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Valuation</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$1,240,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">The Horizon Penthouse</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Oysterbay • Financial District</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">460 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">3 Bed</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 (Offset) -->
+      <div class="group cursor-pointer lg:mt-32">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/studio apartment.jpeg" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Studio" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Portfolio Value</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$840,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">The Glass Atelier</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Masaki • Peninsula</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">120 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">Studio</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="group cursor-pointer">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/penthouse.webp" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Penthouse" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Valuation</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$3,500,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">Azure Bay Estate</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Msasani • Ocean Front</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">850 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">5 Bed</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+       <!-- 01 -->
+      <div class="group cursor-pointer">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/city luxe.webp" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Skyline" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute top-8 left-8 flex flex-col gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+            <span class="bg-amber-500 text-black text-[8px] font-black uppercase tracking-[0.2em] px-3 py-1.5 w-fit">Off-Market</span>
+          </div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Valuation</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$1,240,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">The Horizon Penthouse</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Oysterbay • Financial District</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">460 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">3 Bed</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 (Offset) -->
+      <div class="group cursor-pointer lg:mt-32">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/studio apartment.jpeg" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Studio" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Portfolio Value</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$840,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">The Glass Atelier</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Masaki • Peninsula</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">120 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">Studio</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="group cursor-pointer">
+        <div class="relative aspect-[3/4] overflow-hidden bg-stone-900">
+          <img src="assets/penthouse.webp" class="w-full h-full object-cover transition-transform duration-[3s] ease-out group-hover:scale-110 opacity-60 group-hover:opacity-100" alt="Penthouse" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent opacity-80"></div>
+          <div class="absolute bottom-10 left-10">
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Valuation</p>
+            <p class="text-5xl font-serif text-white tracking-tighter">$3,500,000</p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <div class="flex justify-between items-end border-b border-white/10 pb-8">
+            <div>
+              <h3 class="text-3xl font-serif text-white tracking-tight group-hover:text-amber-500 transition-colors">Azure Bay Estate</h3>
+              <p class="text-stone-500 text-[10px] uppercase tracking-[0.3em] mt-3">Msasani • Ocean Front</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-8">
+             <div class="flex gap-6">
+                <div class="flex flex-col"><span class="text-[10px] text-white font-serif italic">850 m²</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Area</span></div>
+                <div class="flex flex-col border-l border-white/10 pl-6"><span class="text-[10px] text-white font-serif italic">5 Bed</span><span class="text-[8px] text-stone-600 uppercase tracking-widest mt-1">Layout</span></div>
+             </div>
+             <button class="text-[10px] uppercase tracking-[0.2em] text-stone-400 group-hover:text-white font-bold transition-colors">Details <span class="text-amber-500 ml-1">→</span></button>
+          </div>
+        </div>
+      </div>
+
+     
+
+
+  </div>
+</section>
+
+<!-- Modal Structure --><div id="propertyModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 md:p-10">
+    <div class="absolute inset-0 bg-black/95 backdrop-blur-xl" onclick="closeModal()"></div>
+    
+    <div class="relative bg-[#0A0A0A] border border-white/10 w-full max-w-5xl max-h-[90vh] overflow-y-auto">
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-stone-500 hover:text-white z-10">✕</button>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="h-80 lg:h-full min-h-[400px]">
+                <img id="modalImg" src="" class="w-full h-full object-cover">
+            </div>
+
+            <div class="p-8 md:p-16">
+                <span id="modalLoc" class="text-amber-500 text-[10px] uppercase tracking-[0.6em] font-bold mb-4"></span>
+                <h2 id="modalTitle" class="text-5xl font-serif text-white mb-6"></h2>
+                
+                <div class="flex gap-10 border-y border-white/5 py-8 mb-8">
+                    <div>
+                        <p class="text-stone-500 text-[8px] uppercase tracking-widest mb-1">Valuation</p>
+                        <p id="modalPrice" class="text-xl text-white font-serif"></p>
+                    </div>
+                    <div>
+                        <p class="text-stone-500 text-[8px] uppercase tracking-widest mb-1">Layout</p>
+                        <p id="modalLayout" class="text-xl text-white font-serif"></p>
+                    </div>
+                </div>
+                <a href="#" class="block w-full py-5 bg-amber-500 text-black text-center text-[10px] uppercase font-black tracking-[0.4em]">Inquire Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- FOOTER SECTION -->
+ <footer class="bg-[#050505] text-white pt-40 pb-12 relative overflow-hidden border-t border-white/5">
+  <!-- Architectural Watermark -->
+  <div class="absolute -bottom-16 -left-10 text-[18rem] font-serif italic text-white/[0.01] pointer-events-none select-none tracking-tighter">
+    LuxeAsset
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    
+    <!-- TOP SECTION: GLOBAL REACH -->
+    <div class="grid lg:grid-cols-12 gap-16 mb-32">
+      
+      <!-- COLUMN 1: CORPORATE IDENTITY -->
+      <div class="lg:col-span-5 space-y-10">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 border border-amber-500 flex items-center justify-center rotate-45 group hover:rotate-90 transition-transform duration-700">
+                <span class="text-2xl font-serif text-amber-500 -rotate-45 group-hover:-rotate-90 transition-transform duration-700">L</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-2xl font-serif tracking-tighter uppercase font-black text-white leading-none">LUXE<span class="text-amber-500 italic">ASSET</span></span>
+              <span class="text-[8px] uppercase tracking-[0.6em] text-stone-600 mt-2">Institutional Real Estate</span>
+            </div>
+        </div>
+        <p class="text-stone-500 font-light leading-relaxed max-w-sm text-xs uppercase tracking-widest">
+            Fiduciary management of high-yield residential and commercial assets across the emerging markets of East Africa and the Middle East.
+        </p>
+        <div class="flex gap-8 pt-4">
+            <a  href="https://www.bloomberg.com/wealth/real-estate" target="_blank" class="text-[9px] uppercase tracking-[0.5em] font-bold text-stone-700 hover:text-amber-500 transition-colors">Bloomberg</a>
+            <a href="https://factset.com" target="_blank" class="text-[9px] uppercase tracking-[0.5em] font-bold text-stone-700 hover:text-amber-500 transition-colors">FactSet</a>
+            <a  href="https://reuters.com" 
+   target="_blank" 
+   rel="noopener noreferrer" class="text-[9px] uppercase tracking-[0.5em] font-bold text-stone-700 hover:text-amber-500 transition-colors">Reuters</a>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: OPERATIONS -->
+      <div class="lg:col-span-2 space-y-8">
+        <h4 class="text-[9px] uppercase tracking-[0.5em] text-amber-500 font-black">Capital</h4>
+        <ul class="space-y-5">
+            <li><a href="#listings" class="text-[10px] uppercase tracking-[0.2em] text-stone-500 hover:text-amber-500 transition-all flex items-center gap-3 group"> Acquisition</a></li>
+            <li><a href="#advisory" class="text-[10px] uppercase tracking-[0.2em] text-stone-500 hover:text-amber-500 transition-all flex items-center gap-3 group"> Advisory</a></li>
+            <li><a href="#portfolio" class="text-[10px] uppercase tracking-[0.2em] text-stone-500 hover:text-amber-500 transition-all flex items-center gap-3 group"> Off-Market</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUMN 3: LEGAL -->
+      <div class="lg:col-span-2 space-y-8">
+        <h4 class="text-[9px] uppercase tracking-[0.5em] text-amber-500 font-black">Framework</h4>
+        <ul class="space-y-5">
+            <li><a href="#" class="text-[10px] uppercase tracking-[0.2em] text-stone-500 hover:text-amber-500 transition-all flex items-center gap-3 group"> Compliance</a></li>
+            <li><a href="#" class="text-[10px] uppercase tracking-[0.2em] text-stone-500 hover:text-amber-500 transition-all flex items-center gap-3 group"> Privacy Vault</a></li>
+            <li><a href="#" class="text-[10px] uppercase tracking-[0.2em] text-stone-500 hover:text-amber-500 transition-all flex items-center gap-3 group"> Governance</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUMN 4: GLOBAL DESK -->
+      <div class="lg:col-span-3 space-y-8 bg-white/[0.01] p-10 border border-white/5 rounded-sm">
+        <h4 class="text-[9px] uppercase tracking-[0.5em] text-amber-500 font-black">Settlement Desk</h4>
+        <div class="space-y-6">
+            <div class="group cursor-pointer">
+                <p class="text-[8px] uppercase tracking-widest text-stone-600 mb-2">Primary Line</p>
+                <p class="text-xl font-serif text-white group-hover:text-amber-500 transition-colors tracking-tighter">+255 700 111 222</p>
+            </div>
+            <div class="group cursor-pointer">
+                <p class="text-[8px] uppercase tracking-widest text-stone-600 mb-2">Secure Correspondence</p>
+                <p class="text-sm font-light text-white group-hover:text-amber-500 transition-colors tracking-widest">PRIVATE@LUXEASSET.COM</p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC DIVIDER -->
+    <div class="w-full h-[1px] bg-white/5 mb-16"></div>
+
+    <!-- BOTTOM BAR: THE FINAL IMPRESSION -->
+    <div class="flex flex-col md:flex-row justify-between items-end gap-12">
+      
+      <!-- COPYRIGHT & DATA -->
+      <div class="order-2 md:order-1 text-left">
+        <div class="flex items-center gap-4 mb-4">
+            <span class="text-[8px] uppercase tracking-[0.5em] text-stone-500 font-black">© 2026 LUXEASSET INTERNATIONAL</span>
+            <div class="w-1 h-1 rounded-full bg-stone-800"></div>
+            <span class="text-[8px] uppercase tracking-[0.5em] text-stone-500 font-black italic">Dar // Dubai // London</span>
+        </div>
+        <p class="text-[7px] uppercase tracking-[0.4em] text-stone-700 max-w-sm leading-loose">
+            Luxestay is a registered subsidiary of LuxeAsset International Group. All transactions are subject to AML/KYC protocols. Licensed by the Real Estate Regulatory Authority.
+        </p>
+      </div>
+
+      <!-- AGENCY CREDIT: THE SIGN-OFF -->
+      <div class="order-1 md:order-2 w-full md:w-auto">
+        <div class="px-8 py-6 border border-white/5 rounded-sm flex items-center justify-between gap-12 group hover:border-amber-500 transition-all duration-500">
+            <div>
+                <p class="text-[7px] uppercase tracking-[0.6em] text-stone-600 font-black mb-1">Designed and Developed by</p>
+                <a href="https://www.synlotech.com" target="_blank" class="text-[12px] uppercase tracking-[0.3em] font-black text-white">
+                    SYNLOTECH TECHNOLOGIES
+                </a>
+            </div>
+            <div class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-amber-500 group-hover:border-amber-500 transition-all duration-500">
+                <i class="fa-solid fa-code text-[10px] text-stone-600 group-hover:text-black"></i>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
+
+
+ <script src="script.js"></script>
+
+ <script>
+  
+   const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const l1 = document.getElementById('line-1');
+  const l2 = document.getElementById('line-2');
+
+  toggle.addEventListener('click', () => {
+    const isHidden = menu.classList.contains('hidden');
+    
+    if (isHidden) {
+      menu.classList.remove('hidden');
+      setTimeout(() => {
+        menu.classList.remove('opacity-0', '-translate-y-4');
+      }, 10);
+      l1.style.transform = 'translateY(4px) rotate(45deg)';
+      l2.style.width = '24px';
+      l2.style.transform = 'translateY(-4px) rotate(-45deg)';
+    } else {
+      menu.classList.add('opacity-0', '-translate-y-4');
+      setTimeout(() => menu.classList.add('hidden'), 500);
+      l1.style.transform = 'none';
+      l2.style.width = '16px';
+      l2.style.transform = 'none';
+    }
+  });
+ </script>
+
+</body>
+</html>
