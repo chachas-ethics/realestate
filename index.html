@@ -1881,6 +1881,21 @@
     }, 50);
   }
 
+   function toggleFAQ(id) {
+    const content = document.getElementById(`faq-${id}`);
+    const icon = document.getElementById(`icon-${id}`);
+    
+    // Close others if you want a single-open effect
+    const allContent = document.querySelectorAll('[id^="faq-"]');
+    const allIcons = document.querySelectorAll('[id^="icon-"]');
+    
+    allContent.forEach((el, index) => {
+      if (el.id !== `faq-${id}`) {
+        el.style.maxHeight = '0px';
+        allIcons[index].style.transform = 'rotate(0deg)';
+      }
+    });
+    
   
 /* ios hover */
  document.addEventListener("touchstart", function() {}, true);
