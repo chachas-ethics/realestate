@@ -1880,8 +1880,7 @@
       mainImg.style.opacity = 1;
     }, 50);
   }
-
-   function toggleFAQ(id) {
+ function toggleFAQ(id) {
     const content = document.getElementById(`faq-${id}`);
     const icon = document.getElementById(`icon-${id}`);
     
@@ -1895,7 +1894,15 @@
         allIcons[index].style.transform = 'rotate(0deg)';
       }
     });
-    
+
+    if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+      content.style.maxHeight = '500px';
+      icon.style.transform = 'rotate(90deg)';
+    } else {
+      content.style.maxHeight = '0px';
+      icon.style.transform = 'rotate(0deg)';
+    }
+  }
   
 /* ios hover */
  document.addEventListener("touchstart", function() {}, true);
